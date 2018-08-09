@@ -62,6 +62,22 @@ module Cielo
 
         request.execute(payment_id)
       end
+
+      # Create a new credit card token
+      #
+      # @param card [Card] The preconfigured Sale
+      # @return [Card] The Card token returned by Cielo.
+      def create_token(card)
+        Cielo::API30::Request::CreateCardTokenRequest.new(merchant, environment).execute(card)
+      end
+
+      # Query a Credit Card on Cielo by card_token
+      #
+      # @param payment_id [String] The payment_id to be queried
+      # @return [Sale] The Sale with authorization, tid, etc. returned by Cielo.
+      def get_credit_card(card_token)
+        Cielo::API30::Request::QueryCreditCardRequest.new(merchant, environment).execute(card_token)
+      end
     end
   end
 end

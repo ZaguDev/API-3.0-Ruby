@@ -12,6 +12,8 @@ require "cielo/api30/sale"
 require "cielo/api30/request/create_sale_request"
 require "cielo/api30/request/query_sale_request"
 require "cielo/api30/request/update_sale_request"
+require "cielo/api30/request/create_card_token_request"
+require "cielo/api30/request/query_credit_card_request"
 
 module Cielo
   module API30
