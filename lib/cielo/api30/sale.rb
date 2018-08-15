@@ -21,9 +21,6 @@ module Cielo
         sale = new(data["MerchantOrderId"])
         sale.customer = Customer.from_json(data["Customer"])
         sale.payment = Payment.from_json(data["Payment"])
-
-        raise CieloError.new(data["Code"], data["Message"]) unless Cielo::API30::Payment::Status.success?(sale.payment.status)
-
         sale
       end
 
