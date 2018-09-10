@@ -73,8 +73,8 @@ module Cielo
 
       # Query a Credit Card on Cielo by card_token
       #
-      # @param payment_id [String] The payment_id to be queried
-      # @return [Sale] The Sale with authorization, tid, etc. returned by Cielo.
+      # @param card_token [String] The card_token to be queried
+      # @return [CreditCard] The tokenized CreditCard returned by Cielo.
       def get_credit_card(card_token)
         Cielo::API30::Request::QueryCreditCardRequest.new(merchant, environment).execute(card_token)
       end
